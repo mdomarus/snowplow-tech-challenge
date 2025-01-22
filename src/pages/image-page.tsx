@@ -67,7 +67,7 @@ const ImagePage = () => {
             <input
               disabled={inProgress}
               type="checkbox"
-              name="grayscale"
+              id="grayscale"
               checked={grayscaleState}
               onChange={(e) => {
                 setGrayscale(e.target.checked);
@@ -83,7 +83,7 @@ const ImagePage = () => {
             <input
               disabled={inProgress}
               type="range"
-              name="blur"
+              id="blur"
               min="0"
               max="10"
               value={blurState}
@@ -101,7 +101,7 @@ const ImagePage = () => {
             <Input
               disabled={inProgress}
               type="number"
-              name="width"
+              id="width"
               min="0"
               step="1"
               value={widthState}
@@ -115,7 +115,7 @@ const ImagePage = () => {
             <Input
               disabled={inProgress}
               type="number"
-              name="height"
+              id="height"
               step="1"
               min="0"
               value={heightState}
