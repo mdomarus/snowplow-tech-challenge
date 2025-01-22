@@ -4,6 +4,7 @@ import pluginReact from 'eslint-plugin-react';
 import tailwind from 'eslint-plugin-tailwindcss';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import pluginRouter from '@tanstack/eslint-plugin-router';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -12,6 +13,7 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   ...tailwind.configs['flat/recommended'],
+  ...pluginRouter.configs['flat/recommended'],
   pluginReact.configs.flat.recommended,
   pluginReact.configs.flat['jsx-runtime'],
   eslintPluginPrettierRecommended,

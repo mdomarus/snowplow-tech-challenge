@@ -24,19 +24,12 @@ export const Route = createRootRouteWithContext<{
 function RootComponent() {
   return (
     <>
-      <div className="flex gap-2 p-2 text-lg">
-        <Link
-          to="/"
-          activeProps={{
-            className: 'font-bold',
-          }}
-          activeOptions={{ exact: true }}
-        >
-          Home
-        </Link>
+      <div className="container mx-auto mb-8 px-4">
+        <div className="border-b py-4">
+          <Link to="/">Home</Link>
+        </div>
+        <Outlet />
       </div>
-      <hr />
-      <Outlet />
       <ReactQueryDevtools buttonPosition="top-right" />
       <TanStackRouterDevtools position="bottom-right" />
     </>
