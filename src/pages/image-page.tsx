@@ -126,7 +126,7 @@ const ImagePage = () => {
             />
           </FormFieldContainer>
         </div>
-        <div className="my-4 flex flex-wrap justify-center gap-4">
+        <div className="my-8 flex flex-wrap justify-center gap-4">
           <Button type="submit" disabled={inProgress}>
             Submit
           </Button>
@@ -135,8 +135,9 @@ const ImagePage = () => {
           </Button>
         </div>
         <div className="my-4">
-          Set the <em>width</em> to <code>0</code> for the original size. Set
-          the <em>height</em> to <code>0</code> for a square aspect ratio.
+          Set the <em>width</em> to <code>0</code> for the original size.
+          <br />
+          Set the <em>height</em> to <code>0</code> for a square aspect ratio.
         </div>
       </form>
 

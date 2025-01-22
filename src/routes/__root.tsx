@@ -1,3 +1,4 @@
+import Button from '@/components/button';
 import { QueryClient } from '@tanstack/react-query';
 import {
   Link,
@@ -11,9 +12,11 @@ export const Route = createRootRouteWithContext<{
   component: RootComponent,
   notFoundComponent: () => {
     return (
-      <div>
-        <p>This is the notFoundComponent configured on root route</p>
-        <Link to="/">Start Over</Link>
+      <div className="py-8">
+        <p>This is the notFoundComponent configured on root route.</p>
+        <Link to="/" className="mt-4 block">
+          <Button>Start Over</Button>
+        </Link>
       </div>
     );
   },
@@ -21,13 +24,13 @@ export const Route = createRootRouteWithContext<{
 
 function RootComponent() {
   return (
-    <>
-      <div className="container mx-auto mb-8 px-4">
-        <div className="border-b py-4">
-          <Link to="/">Home</Link>
-        </div>
-        <Outlet />
+    <div className="container mx-auto px-4">
+      <div className="border-b py-4">
+        <Link to="/" className="text-xl">
+          Home
+        </Link>
       </div>
-    </>
+      <Outlet />
+    </div>
   );
 }
