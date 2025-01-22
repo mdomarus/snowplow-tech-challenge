@@ -9,7 +9,7 @@ export interface PaginationProps {
 }
 
 const Pagination = ({ hasNext, hasPrev }: PaginationProps) => {
-  const isFetching = useIsFetching();
+  const isFetching = useIsFetching({ queryKey: ['images'] });
 
   return (
     <div className="my-8 flex justify-center gap-2">

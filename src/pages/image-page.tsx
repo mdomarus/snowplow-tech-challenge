@@ -100,28 +100,32 @@ const ImagePage = () => {
           <FormFieldContainer name="width" label="Width">
             <Input
               disabled={inProgress}
-              type="number"
+              type="text"
               id="width"
-              min="0"
-              step="1"
+              inputMode="numeric"
+              pattern="[0-9]*"
               value={widthState}
               onChange={(e) => {
                 const width = Number(e.target.value);
-                setWidth(width);
+                if (!Number.isNaN(width)) {
+                  setWidth(Number(width));
+                }
               }}
             />
           </FormFieldContainer>
           <FormFieldContainer name="height" label="Height">
             <Input
               disabled={inProgress}
-              type="number"
+              type="text"
               id="height"
-              step="1"
-              min="0"
+              inputMode="numeric"
+              pattern="[0-9]*"
               value={heightState}
               onChange={(e) => {
                 const height = Number(e.target.value);
-                setHeight(height);
+                if (!Number.isNaN(height)) {
+                  setHeight(Number(height));
+                }
               }}
             />
           </FormFieldContainer>
