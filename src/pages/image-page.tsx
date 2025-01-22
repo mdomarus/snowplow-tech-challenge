@@ -1,5 +1,6 @@
 import { imageQueryOptions } from '@/api/imageQueryOptions';
 import Button from '@/components/button';
+import FormFieldContainer from '@/components/form-field-container';
 import Input from '@/components/input';
 import Loading from '@/components/loading';
 import { ImagePageSearchParams, Route } from '@/routes/image.$imageId';
@@ -47,84 +48,96 @@ const ImagePage = () => {
     updateParams({ grayscale: false, blur: 0, width: 0, height: 0 });
   };
 
+  const submit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    updateParams({
+      blur: blurState,
+      grayscale: grayscaleState,
+      width: widthState,
+      height: heightState,
+    });
+  };
+
   return (
     <div>
-      <form className="my-8 flex flex-wrap justify-center gap-8">
-        <div className="flex">
-          <label className="my-2 mr-4" htmlFor="grayscale">
-            Grayscale
-          </label>
-          <input
-            disabled={inProgress}
-            type="checkbox"
-            name="grayscale"
-            checked={grayscaleState}
-            onChange={(e) => {
-              setGrayscale(e.target.checked);
-              updateParams({ grayscale: e.target.checked });
-            }}
-          />
+      <form className="my-8 flex flex-col" onSubmit={submit}>
+        <div className="my-4 flex flex-wrap justify-center gap-8">
+          <FormFieldContainer name="grayscale" label="Grayscale">
+            <input
+              disabled={inProgress}
+              type="checkbox"
+              name="grayscale"
+              checked={grayscaleState}
+              onChange={(e) => {
+                setGrayscale(e.target.checked);
+                updateParams({
+                  grayscale: e.target.checked,
+                  width: widthState,
+                  height: heightState,
+                });
+              }}
+            />
+          </FormFieldContainer>
+          <FormFieldContainer name="blur" label="Blur">
+            <input
+              disabled={inProgress}
+              type="range"
+              name="blur"
+              min="0"
+              max="10"
+              value={blurState}
+              onChange={(e) => {
+                setBlur(Number(e.target.value));
+                updateParams({
+                  blur: Number(e.target.value),
+                  width: widthState,
+                  height: heightState,
+                });
+              }}
+            />
+          </FormFieldContainer>
+          <FormFieldContainer name="width" label="Width">
+            <Input
+              disabled={inProgress}
+              type="number"
+              name="width"
+              min="0"
+              step="1"
+              value={widthState}
+              onChange={(e) => {
+                const width = Number(e.target.value);
+                setWidth(width);
+              }}
+            />
+          </FormFieldContainer>
+          <FormFieldContainer name="height" label="Height">
+            <Input
+              disabled={inProgress}
+              type="number"
+              name="height"
+              step="1"
+              min="0"
+              value={heightState}
+              onChange={(e) => {
+                const height = Number(e.target.value);
+                setHeight(height);
+              }}
+            />
+          </FormFieldContainer>
         </div>
-        <div className="flex">
-          <label className="my-2 mr-4" htmlFor="blur">
-            Blur
-          </label>
-          <input
-            disabled={inProgress}
-            type="range"
-            name="blur"
-            min="0"
-            max="10"
-            value={blurState}
-            onChange={(e) => {
-              setBlur(Number(e.target.value));
-              updateParams({ blur: Number(e.target.value) });
-            }}
-          />
+        <div className="my-4 flex flex-wrap justify-center gap-4">
+          <Button type="submit" disabled={inProgress}>
+            Submit
+          </Button>
+          <Button type="reset" disabled={inProgress} onClick={reset}>
+            Reset
+          </Button>
         </div>
-        <div className="flex">
-          <label className="my-2 mr-4" htmlFor="width">
-            Width
-          </label>
-          <Input
-            disabled={inProgress}
-            type="number"
-            name="width"
-            min="0"
-            step="1"
-            value={widthState}
-            onChange={(e) => {
-              const width = Number(e.target.value);
-              setWidth(width);
-              updateParams({ width, height: heightState || width });
-            }}
-          />
-        </div>
-        <div className="flex">
-          <label className="my-2 mr-4 text-nowrap" htmlFor="height">
-            Height
-          </label>
-          <Input
-            disabled={inProgress}
-            type="number"
-            name="height"
-            step="1"
-            min="0"
-            value={heightState}
-            onChange={(e) => {
-              const height = Number(e.target.value);
-              setHeight(height);
-              updateParams({ height });
-            }}
-          />
-        </div>
-        <Button type="reset" onClick={reset}>
-          Reset
-        </Button>
-        <legend>
+        <div className="my-4">
           Set the <em>width</em> to <code>0</code> for the original size. Set
           the <em>height</em> to <code>0</code> for a square aspect ratio.
-        </legend>
+        </div>
       </form>
       <div>
         <img
