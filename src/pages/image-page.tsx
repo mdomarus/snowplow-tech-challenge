@@ -60,9 +60,9 @@ const ImagePage = () => {
   };
 
   return (
-    <div>
-      <form className="my-8 flex flex-col" onSubmit={submit}>
-        <div className="my-4 flex flex-wrap justify-center gap-8">
+    <div className="mt-4 block">
+      <form className="flex-col px-4 md:float-left md:w-1/3" onSubmit={submit}>
+        <div className="flex flex-wrap justify-center gap-8">
           <FormFieldContainer name="grayscale" label="Grayscale">
             <input
               disabled={inProgress}
@@ -139,13 +139,14 @@ const ImagePage = () => {
           the <em>height</em> to <code>0</code> for a square aspect ratio.
         </div>
       </form>
-      <div>
-        <img
-          className={cn('mx-auto bg-white p-1', { 'opacity-80': inProgress })}
-          src={data}
-          alt="edited image"
-        />
-      </div>
+
+      <img
+        className={cn('bg-white p-1 md:w-2/3', {
+          'opacity-80': inProgress,
+        })}
+        src={data}
+        alt="edited image"
+      />
     </div>
   );
 };
