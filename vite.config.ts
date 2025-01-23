@@ -13,6 +13,7 @@ export default defineConfig({
     },
   },
   test: {
+    setupFiles: 'setup-tests.ts',
     globals: true,
     environment: 'jsdom',
     exclude: [...configDefaults.exclude],
