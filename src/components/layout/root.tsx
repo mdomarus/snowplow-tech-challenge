@@ -3,12 +3,14 @@ import { ReactNode } from 'react';
 
 const Root = (): ReactNode => (
   <div className="container mx-auto px-4">
-    <div className="border-b py-4">
+    <header className="border-b py-4">
       <Link to="/" className="text-xl text-teal-800">
         Home
       </Link>
-    </div>
-    <Outlet />
+    </header>
+    <main>
+      <Outlet />
+    </main>
   </div>
 );
 
