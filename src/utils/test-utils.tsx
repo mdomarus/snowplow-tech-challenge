@@ -1,4 +1,11 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import {
+  createRootRoute,
+  createRoute,
+  createRouter,
+  Router,
+  RouterProvider,
+} from '@tanstack/react-router';
 import { render, RenderOptions } from '@testing-library/react';
 import React, { ReactElement } from 'react';
 
@@ -12,8 +19,29 @@ const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
     },
   });
 
+  const rootRoute = createRootRoute();
+
+  const indexRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/test',
+    component: () => <>{children}</>,
+  });
+
+  const router = createRouter({
+    routeTree: rootRoute.addChildren([indexRoute]),
+    basepath: '/test',
+    context: {
+      queryClient,
+    },
+  });
+
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        router={router as unknown as Router<any, any, any>}
+      />
+    </QueryClientProvider>
   );
 };
 

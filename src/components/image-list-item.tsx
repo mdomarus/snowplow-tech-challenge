@@ -21,6 +21,8 @@ const ImageListItem = ({ image }: { image: ImageType }): ReactNode => {
       >
         <div className="flex flex-col overflow-hidden rounded-xl bg-white text-black shadow">
           <div
+            role="img"
+            aria-label={`Image by ${image.author}`}
             className="aspect-[3/2] overflow-hidden bg-slate-50 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: `url(${backgroundImageUrl})`,
