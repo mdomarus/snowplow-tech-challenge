@@ -1,3 +1,4 @@
+import { DEFAULT_PAGE_SIZE } from '@/constants';
 import { Link, Outlet } from '@tanstack/react-router';
 import { ReactNode } from 'react';
 
@@ -6,10 +7,11 @@ const Root = (): ReactNode => (
     <header className="border-b py-4">
       <h1 className="mb-4 text-3xl text-teal-800">Snowplow Tech Challenge</h1>
       <Link
-        to="/"
+        to="/images"
+        search={{ page: 1, limit: DEFAULT_PAGE_SIZE }}
         className="text-lg underline underline-offset-4 transition-all hover:underline-offset-2"
       >
-        Home
+        Images list
       </Link>
     </header>
     <main>
