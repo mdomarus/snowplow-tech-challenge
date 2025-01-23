@@ -68,7 +68,7 @@ const ImagePage = (): ReactNode => {
         className="flex-col md:float-left md:w-1/3 md:pr-4"
         onSubmit={submit}
       >
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="flex flex-col gap-8">
           <FormFieldContainer name="grayscale" label="Grayscale">
             <input
               disabled={inProgress}

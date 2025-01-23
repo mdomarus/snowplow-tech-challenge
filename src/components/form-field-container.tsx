@@ -10,8 +10,8 @@ const FormFieldContainer = ({
   name: string;
 }): ReactNode => {
   return (
-    <div className="flex items-center">
-      <label className="my-2 mr-4" htmlFor={name}>
+    <div className="flex max-w-64 items-center">
+      <label className="my-2 mr-4 min-w-20" htmlFor={name}>
         {label}
       </label>
       {children}
