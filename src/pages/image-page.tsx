@@ -11,12 +11,15 @@ import { useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
 const ImagePage = () => {
+  const navigate = useNavigate({ from: Route.path });
+
   const { imageId } = Route.useParams();
   const { grayscale, blur, width, height } = Route.useSearch();
+
   const { data, isLoading, isFetching, isPending } = useQuery(
     imageQueryOptions({ id: imageId, blur, grayscale, width, height }),
   );
-  const navigate = useNavigate({ from: Route.path });
+
   const [grayscaleState, setGrayscale] = useState(grayscale);
   const [blurState, setBlur] = useState(blur);
   const [widthState, setWidth] = useState(width);
@@ -138,20 +141,22 @@ const ImagePage = () => {
             Reset
           </Button>
         </div>
-        <div className="my-4">
+        <div className="my-8">
           Set the <em>width</em> to <code>0</code> for the original size.
           <br />
           Set the <em>height</em> to <code>0</code> for a square aspect ratio.
         </div>
       </form>
 
-      <img
-        className={cn('bg-white p-1 md:w-2/3', {
-          'opacity-80': inProgress,
-        })}
-        src={data}
-        alt="edited image"
-      />
+      <div className="justify-items-center md:float-left md:w-2/3">
+        <img
+          className={cn('bg-white', {
+            'opacity-80': inProgress,
+          })}
+          src={data}
+          alt="edited image"
+        />
+      </div>
     </div>
   );
 };

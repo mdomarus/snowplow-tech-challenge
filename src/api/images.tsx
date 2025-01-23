@@ -25,7 +25,7 @@ export const fetchImage = async ({
   height,
   blur = 0,
   grayscale,
-}: FetchImageParams) => {
+}: FetchImageParams): Promise<string> => {
   return axios
     .get(
       `https://picsum.photos/id/${id}/${width}/${height ? height : ''}?${grayscale ? 'grayscale&' : ''}${blur > 0 ? `blur=${blur}` : ''}`,
@@ -48,8 +48,10 @@ const getPaginationProps = (linkHeader: string = ''): PaginationProps => {
     const [, rel] = link.split(';').map((s) => s.trim());
     return rel;
   });
-  const hasNext = Boolean(links.find((link) => link.includes('rel="next"')));
-  const hasPrev = Boolean(links.find((link) => link.includes('rel="prev"')));
+
+  const hasNext = links.some((link) => link.match(/next/i));
+  const hasPrev = links.some((link) => link.match(/prev/i));
+
   return { hasNext, hasPrev };
 };
 

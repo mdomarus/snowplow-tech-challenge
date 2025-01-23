@@ -10,4 +10,5 @@ export const imagesQueryOptions = (
     queryKey: ['images', page, limit],
     queryFn: () => fetchImages(page, limit),
     placeholderData: keepPreviousData,
+    throwOnError: true,
   });

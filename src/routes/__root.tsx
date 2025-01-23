@@ -26,7 +26,7 @@ function RootComponent() {
   return (
     <div className="container mx-auto px-4">
       <div className="border-b py-4">
-        <Link to="/" className="text-xl">
+        <Link to="/" className="text-xl text-teal-800">
           Home
         </Link>
       </div>

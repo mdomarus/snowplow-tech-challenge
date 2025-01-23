@@ -8,7 +8,7 @@ const FormFieldContainer = ({
   children: ReactNode;
   label: string;
   name: string;
-}) => {
+}): ReactNode => {
   return (
     <div className="flex items-center">
       <label className="my-2 mr-4" htmlFor={name}>

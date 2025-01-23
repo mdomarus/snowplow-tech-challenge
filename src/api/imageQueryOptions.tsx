@@ -1,16 +1,9 @@
-import { keepPreviousData, queryOptions } from '@tanstack/react-query';
 import { fetchImage, FetchImageParams } from '@/api/images';
+import { keepPreviousData, queryOptions } from '@tanstack/react-query';
 
 export const imageQueryOptions = (params: FetchImageParams) =>
   queryOptions({
-    queryKey: [
-      'image',
-      params.blur,
-      params.grayscale,
-      params.height,
-      params.id,
-      params.width,
-    ],
+    queryKey: ['image', params],
     queryFn: () => fetchImage(params),
     placeholderData: keepPreviousData,
     throwOnError: true,
