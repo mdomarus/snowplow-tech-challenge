@@ -5,11 +5,10 @@ import {
   ErrorComponentProps,
   useRouter,
 } from '@tanstack/react-router';
-import { useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 
-const LoadingError = ({ error }: ErrorComponentProps) => {
+const LoadingError = ({ error }: ErrorComponentProps): ReactNode => {
   const router = useRouter();
-
   const queryErrorResetBoundary = useQueryErrorResetBoundary();
 
   useEffect(() => {

@@ -3,6 +3,7 @@ import { Link } from '@tanstack/react-router';
 import { ReactNode } from 'react';
 
 const ImageListItem = ({ image }: { image: ImageType }): ReactNode => {
+  // create a URL for the image with a 600x400 size to reduce loading times
   const backgroundImageUrl = image.download_url
     .split('/')
     .slice(0, -2)

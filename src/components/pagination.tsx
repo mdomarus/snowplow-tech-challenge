@@ -2,13 +2,14 @@ import Button from '@/components/button';
 import { DEFAULT_PAGE_SIZE } from '@/main';
 import { useIsFetching } from '@tanstack/react-query';
 import { Link } from '@tanstack/react-router';
+import { ReactNode } from 'react';
 
 export interface PaginationProps {
   hasNext: boolean;
   hasPrev: boolean;
 }
 
-const Pagination = ({ hasNext, hasPrev }: PaginationProps) => {
+const Pagination = ({ hasNext, hasPrev }: PaginationProps): ReactNode => {
   const isFetching = useIsFetching({ queryKey: ['images'] });
 
   return (

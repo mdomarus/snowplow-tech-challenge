@@ -2,15 +2,15 @@ import { imageQueryOptions } from '@/api/imageQueryOptions';
 import Button from '@/components/button';
 import FormFieldContainer from '@/components/form-field-container';
 import Input from '@/components/input';
-import Loading from '@/components/loading';
+import Loading from '@/components/layout/loading';
 import { ImagePageSearchParams, Route } from '@/routes/image.$imageId';
 import { cn } from '@/utils/cn';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from '@tanstack/react-router';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
-const ImagePage = () => {
+const ImagePage = (): ReactNode => {
   const navigate = useNavigate({ from: Route.path });
 
   const { imageId } = Route.useParams();
@@ -110,7 +110,7 @@ const ImagePage = () => {
               value={widthState}
               onChange={(e) => {
                 const width = Number(e.target.value);
-                if (!Number.isNaN(width)) {
+                if (!isNaN(width)) {
                   setWidth(Number(width));
                 }
               }}
@@ -126,7 +126,7 @@ const ImagePage = () => {
               value={heightState}
               onChange={(e) => {
                 const height = Number(e.target.value);
-                if (!Number.isNaN(height)) {
+                if (!isNaN(height)) {
                   setHeight(Number(height));
                 }
               }}

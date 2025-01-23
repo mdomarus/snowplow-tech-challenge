@@ -7,4 +7,5 @@ export const imageQueryOptions = (params: FetchImageParams) =>
     queryFn: () => fetchImage(params),
     placeholderData: keepPreviousData,
     throwOnError: true,
+    staleTime: Infinity, // never invalidate the cache
   });

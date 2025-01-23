@@ -1,14 +1,13 @@
 import { imagesQueryOptions } from '@/api/imagesQueryOptions';
 import ImageListItem from '@/components/image-list-item';
-import Loading from '@/components/loading';
+import Loading from '@/components/layout/loading';
 import Pagination from '@/components/pagination';
-import { DEFAULT_PAGE_SIZE } from '@/main';
 import { Route } from '@/routes/images';
 import { useQuery } from '@tanstack/react-query';
 import { ReactNode } from '@tanstack/react-router';
 
 const ImagesPage = (): ReactNode => {
-  const { page = 1, limit = DEFAULT_PAGE_SIZE } = Route.useSearch();
+  const { page, limit } = Route.useSearch();
   const { data, isLoading } = useQuery(imagesQueryOptions(page, limit));
 
   if (isLoading || !data) {

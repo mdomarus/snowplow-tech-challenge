@@ -11,4 +11,5 @@ export const imagesQueryOptions = (
     queryFn: () => fetchImages(page, limit),
     placeholderData: keepPreviousData,
     throwOnError: true,
+    staleTime: 1000 * 60 * 5, // 5 minutes in milliseconds
   });
