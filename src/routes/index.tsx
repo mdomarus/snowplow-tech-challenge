@@ -1,4 +1,4 @@
-import { DEFAULT_PAGE_SIZE } from '@/main';
+import { DEFAULT_PAGE_SIZE } from '@/constants';
 import { Navigate, createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/')({

@@ -5,8 +5,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { routeTree } from './routeTree.gen';
 
-export const DEFAULT_PAGE_SIZE = 12;
-
 const queryClient = new QueryClient();
 
 // Set up a Router instance

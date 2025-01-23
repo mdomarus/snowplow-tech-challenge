@@ -1,5 +1,5 @@
 import Button from '@/components/button';
-import { DEFAULT_PAGE_SIZE } from '@/main';
+import { DEFAULT_PAGE_SIZE } from '@/constants';
 import { useIsFetching } from '@tanstack/react-query';
 import { Link } from '@tanstack/react-router';
 import { ReactNode } from 'react';

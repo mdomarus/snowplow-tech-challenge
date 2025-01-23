@@ -1,5 +1,5 @@
 import { fetchImages } from '@/api/images';
-import { DEFAULT_PAGE_SIZE } from '@/main';
+import { DEFAULT_PAGE_SIZE } from '@/constants';
 import { keepPreviousData, queryOptions } from '@tanstack/react-query';
 
 export const imagesQueryOptions = (

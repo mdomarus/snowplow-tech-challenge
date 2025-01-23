@@ -1,5 +1,5 @@
 import { PaginationProps } from '@/components/pagination';
-import { DEFAULT_PAGE_SIZE } from '@/main';
+import { DEFAULT_PAGE_SIZE } from '@/constants';
 import axios from 'axios';
 
 export type ImageType = {
@@ -43,9 +43,11 @@ export const fetchImage = async ({
     });
 };
 
-const getPaginationProps = (linkHeader: string = ''): PaginationProps => {
+export const getPaginationProps = (
+  linkHeader: string = '',
+): PaginationProps => {
   const links = linkHeader.split(',').map((link) => {
-    const [, rel] = link.split(';').map((s) => s.trim());
+    const [, rel = ''] = link.split(';').map((s) => s.trim());
     return rel;
   });
 

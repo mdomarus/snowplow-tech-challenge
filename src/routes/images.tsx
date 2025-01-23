@@ -1,6 +1,6 @@
 import { imagesQueryOptions } from '@/api/imagesQueryOptions';
 import LoadingError from '@/components/layout/loading-error';
-import { DEFAULT_PAGE_SIZE } from '@/main';
+import { DEFAULT_PAGE_SIZE } from '@/constants';
 import ImagesPage from '@/pages/images-page';
 import { createFileRoute } from '@tanstack/react-router';
 
