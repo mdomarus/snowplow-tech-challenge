@@ -13,7 +13,12 @@ describe('FormFieldContainer', () => {
   it('should have matched label and render children', () => {
     render(
       <FormFieldContainer label="Some Label" name="field-name">
-        <input type="text" id="field-name" value="input value" />
+        <input
+          type="text"
+          id="field-name"
+          value="input value"
+          onChange={console.log}
+        />
       </FormFieldContainer>,
     );
     expect(screen.getByLabelText('Some Label')).toHaveDisplayValue(
