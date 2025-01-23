@@ -9,7 +9,7 @@ const Root = (): ReactNode => (
       <Link
         to="/images"
         search={{ page: 1, limit: DEFAULT_PAGE_SIZE }}
-        className="text-lg underline underline-offset-4 transition-all hover:underline-offset-2"
+        className="text-lg underline underline-offset-4 transition-all hover:text-teal-800 hover:underline-offset-2"
       >
         Images list
       </Link>

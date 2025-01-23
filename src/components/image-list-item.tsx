@@ -19,7 +19,7 @@ const ImageListItem = ({ image }: { image: ImageType }): ReactNode => {
         }}
         search={{ blur: 0, grayscale: false, width: 0 }}
       >
-        <div className="flex flex-col overflow-hidden rounded-xl bg-white text-black shadow">
+        <div className="flex flex-col overflow-hidden rounded-xl bg-white text-black shadow hover:shadow-lg">
           <div
             role="img"
             aria-label={`Image by ${image.author}`}
