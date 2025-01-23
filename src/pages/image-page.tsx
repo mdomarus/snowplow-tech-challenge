@@ -64,7 +64,10 @@ const ImagePage = (): ReactNode => {
 
   return (
     <div className="mt-4 block">
-      <form className="flex-col px-4 md:float-left md:w-1/3" onSubmit={submit}>
+      <form
+        className="flex-col md:float-left md:w-1/3 md:pr-4"
+        onSubmit={submit}
+      >
         <div className="flex flex-wrap justify-center gap-8">
           <FormFieldContainer name="grayscale" label="Grayscale">
             <input
