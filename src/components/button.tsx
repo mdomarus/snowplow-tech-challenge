@@ -9,7 +9,7 @@ const Button = ({
   return (
     <button
       className={cn(
-        'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
+        'inline-flex items-center justify-center gap-2 rounded-md bg-teal-50 px-4 py-2 text-sm font-medium whitespace-nowrap text-teal-800 shadow transition-colors hover:bg-teal-100 focus-visible:ring-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
         className,
       )}
       {...props}

@@ -15,6 +15,7 @@ const Pagination = ({ hasNext, hasPrev }: PaginationProps): ReactNode => {
   return (
     <div className="my-8 flex justify-center gap-2">
       <Link
+        tabIndex={-1}
         to={'/images'}
         disabled={!hasPrev || Boolean(isFetching)}
         search={({ page = 1, limit = DEFAULT_PAGE_SIZE }) => ({
@@ -26,6 +27,7 @@ const Pagination = ({ hasNext, hasPrev }: PaginationProps): ReactNode => {
       </Link>
       <Link
         to={'/images'}
+        tabIndex={-1}
         disabled={!hasNext}
         search={({ page = 1, limit = DEFAULT_PAGE_SIZE }) => ({
           page: page + 1,
